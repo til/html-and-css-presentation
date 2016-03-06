@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+<link rel="stylesheet" href="custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<section id="slide-orgheadline1">
+<h2 id="orgheadline1">Today</h2>
+<ul>
+<li>Recap homework</li>
+<li>HTML and CSS</li>
+
+</ul>
+
+<small>
+<p>
+The basis of all web development.
+</p>
+
+<p>
+After today, you will have a solid understanding, and will be able to
+design your own project!
+</p>
+</small>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline2">
+<h2 id="orgheadline2">Homework from this week</h2>
+<ul>
+<li>Design the app</li>
+<li>Create controller and view</li>
+<li>What exactly?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h2 id="orgheadline3">HTML and CSS</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline4">
+<h2 id="orgheadline4">Part I: HTML</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline5">
+<h2 id="orgheadline5">The M stands for markup</h2>
+<div class="org-src-container">
+
+<pre  class="src src-html">This is some example text.
+</pre>
+</div>
+<p>
+becomes
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span>&gt;
+  This is some &lt;<span style="color: #0000ff;">strong</span>&gt;<span style="font-weight: bold;">example</span>&lt;/<span style="color: #0000ff;">strong</span>&gt; text.
+&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+and looks like this in a browser:
+</p>
+This is some <strong>example</strong> text.
+</section>
+</section>
+<section>
+<section id="slide-orgheadline6">
+<h2 id="orgheadline6">HTML is content and structure</h2>
+<p>
+Text content is mixed with <i>markup</i> for the structure.
+</p>
+
+<p>
+Markup is made with tags.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline7">
+<h2 id="orgheadline7">Tags</h2>
+<p>
+Most tags consist of an opening and a closing tag:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">...</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+</pre>
+</div>
+<p>
+tags can be nested:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span>&gt;...&lt;<span style="color: #0000ff;">strong</span>&gt;<span style="font-weight: bold;">...</span>&lt;/<span style="color: #0000ff;">strong</span>&gt;...&lt;/<span style="color: #0000ff;">h1</span>&gt;
+</pre>
+</div>
+<p>
+but never like this: &lt;h1&gt;&#x2026;&lt;strong&gt;&#x2026;&lt;/h1&gt;&#x2026;&lt;/strong&gt; !
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline8">
+<h2 id="orgheadline8">Tags can have attributes</h2>
+<p>
+Attributes are inside the opening tag
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">foo</span>=<span style="color: #8b2252;">"bla"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+A tag can have multiple different attributes
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">foo</span>=<span style="color: #8b2252;">"bla"</span> <span style="color: #a0522d;">bar</span>=<span style="color: #8b2252;">"bla2"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline9">
+<h2 id="orgheadline9">Tags for Text</h2>
+<p>
+<code>h1</code>: big headline
+</p>
+
+<p>
+<code>h2</code>, <code>h3</code>, &#x2026;: smaller headlines
+</p>
+
+<p>
+<code>p</code>: paragraph
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">The headline</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+&lt;<span style="color: #0000ff;">p</span>&gt;A paragraph.&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span>&gt;Another paragraph.&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+
+<p>
+(There are many more: <code>small</code>, <code>em</code>, <code>strong</code>, <code>b</code>, <code>i</code>, &#x2026;)
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline10">
+<h2 id="orgheadline10">Whitespace</h2>
+<p>
+In most cases, spaces and newlines inside the code do not matter.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span>&gt;Some example     text.
+      &lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+is displayed as:
+</p>
+
+<p>
+Some example text.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline11">
+<h2 id="orgheadline11">class and id</h2>
+<p>
+<code>class</code> and <code>id</code> are special attributes.
+</p>
+
+<p>
+They are used by CSS.
+</p>
+
+<p>
+The value can be chosen freely.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h2 id="orgheadline12">id</h2>
+<p>
+<code>id</code> can only be used once per page
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span> <span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"the-headline"</span>&gt;<span style="font-weight: bold; text-decoration: underline;">...</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline13">
+<h2 id="orgheadline13">class</h2>
+<p>
+<code>class</code> can be used multiple times per page:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"help"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"help"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+
+<p>
+multiple classes can be separated by space:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"help primary"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"help optional"</span>&gt;...&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline14">
+<h2 id="orgheadline14">prefer class</h2>
+<p>
+When in doubt, prefer <code>class</code> over <code>id</code>.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline15">
+<h2 id="orgheadline15">Comments</h2>
+<div class="org-src-container">
+
+<pre  class="src src-html"><span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">this is a comment </span><span style="color: #b22222;">--&gt;</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline16">
+<h2 id="orgheadline16">Link</h2>
+<p>
+An <code>a</code> tag with an <code>href</code> attribute. Link text is enclosed by the tag.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"https://www.google.com/"</span>&gt;search yourself&lt;/<span style="color: #0000ff;">a</span>&gt;
+</pre>
+</div>
+<p>
+becomes:
+</p>
+<a href="https://www.google.com/">search yourself</a>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline17">
+<h2 id="orgheadline17">Link target</h2>
+<p>
+The value of the <code>href</code> attribute.
+</p>
+
+<p>
+Can be one of three kinds
+</p>
+
+<ol>
+<li>Different server: <code>https://www.google.com/</code></li>
+<li>Absolute link: <code>/info.html</code> (same server)</li>
+<li>Relative link: <code>page2.html</code> (same directory)</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18">img</h2>
+<p>
+An <code>img</code> tag with a <code>src</code> attribute.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">img</span> <span style="color: #a0522d;">src</span>=<span style="color: #8b2252;">"my-photo.jpg"</span>&gt;
+</pre>
+</div>
+
+<p>
+No closing tag, no text.
+</p>
+
+<p>
+The URL in <code>src</code> can also be on different server, absolute or relative.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline19">
+<h2 id="orgheadline19">Forms</h2>
+<p>
+HTML has tags for forms.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">input</span> <span style="color: #a0522d;">type</span>=<span style="color: #8b2252;">"text"</span> <span style="color: #a0522d;">value</span>=<span style="color: #8b2252;">"test"</span>&gt;
+&lt;<span style="color: #0000ff;">input</span> <span style="color: #a0522d;">type</span>=<span style="color: #8b2252;">"submit"</span> <span style="color: #a0522d;">value</span>=<span style="color: #8b2252;">"OK"</span>&gt;
+</pre>
+</div>
+<p>
+looks like
+</p>
+<input type="text"><input type="submit" value="OK">
+</section>
+</section>
+<section>
+<section id="slide-orgheadline20">
+<h2 id="orgheadline20">page structure</h2>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">html</span>&gt;
+  &lt;<span style="color: #0000ff;">head</span>&gt;
+  &lt;/<span style="color: #0000ff;">head</span>&gt;
+  &lt;<span style="color: #0000ff;">body</span>&gt;
+    <span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">the content goes here </span><span style="color: #b22222;">--&gt;</span>
+  &lt;/<span style="color: #0000ff;">body</span>&gt;
+&lt;/<span style="color: #0000ff;">html</span>&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline21">
+<h2 id="orgheadline21">Practice!</h2>
+<p>
+A sample app
+</p>
+
+<p>
+<a href="https://github.com/ReDI-School/hello-html-and-css-world">https://github.com/ReDI-School/hello-html-and-css-world</a>
+</p>
+
+<p>
+<a href="https://redi-school.github.io/hello-html-and-css-world">https://redi-school.github.io/hello-html-and-css-world</a>
+</p>
+
+<p>
+Add your project title, description, links and an image.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline22">
+<h2 id="orgheadline22">Part II: CSS</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline23">
+<h2 id="orgheadline23">Structure</h2>
+<p>
+Always consists of selector and styles
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">body </span>{
+  <span style="color: #a0522d;">padding</span>: 3em;
+}
+<span style="color: #0000ff;">p </span>{
+  <span style="color: #a0522d;">background-color</span>: grey;
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline24">
+<h2 id="orgheadline24">Selectors</h2>
+<p>
+Specify which elements are affected
+</p>
+
+<p>
+Simplest form: an html element
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">p </span>{ ... }
+</pre>
+</div>
+
+<p>
+or a class
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">.help </span>{ ... }
+</pre>
+</div>
+
+<p>
+or both
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">p.help </span>{ ... }
+</pre>
+</div>
+<p>
+(or more complicated, later)
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline25">
+<h2 id="orgheadline25">selector example element</h2>
+<p>
+Given this html
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Headline</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+&lt;<span style="color: #0000ff;">p</span>&gt;Paragraph 1&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span>&gt;Paragraph 2&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+and this css
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">p </span>{ <span style="color: #a0522d;">color</span>: red; }
+</pre>
+</div>
+<p>
+is displayed as
+</p>
+<strong>Headline</strong><br>
+<span style="color: red;">Paragraph 1</span><br>
+<span style="color: red;">Paragraph 2</span>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline26">
+<h2 id="orgheadline26">selector example class</h2>
+<p>
+Given this html
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"foo"</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Headline</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"bar"</span>&gt;Paragraph 1&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"foo"</span>&gt;Paragraph 2&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+and this css
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">.foo </span>{ <span style="color: #a0522d;">color</span>: red; }
+</pre>
+</div>
+<p>
+is displayed as
+</p>
+<strong style="color: red;">Headline</strong><br>
+<span>Paragraph 1</span><br>
+<span style="color: red;">Paragraph 2</span>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline27">
+<h2 id="orgheadline27">selector example element and class</h2>
+<p>
+Given this html
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #0000ff;">h1</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"foo"</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Headline</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"bar"</span>&gt;Paragraph 1&lt;/<span style="color: #0000ff;">p</span>&gt;
+&lt;<span style="color: #0000ff;">p</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"foo"</span>&gt;Paragraph 2&lt;/<span style="color: #0000ff;">p</span>&gt;
+</pre>
+</div>
+<p>
+and this css
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">p.foo </span>{ <span style="color: #a0522d;">color</span>: red; }
+</pre>
+</div>
+<p>
+is displayed as
+</p>
+<strong>Headline</strong><br>
+<span>Paragraph 1</span><br>
+<span style="color: red;">Paragraph 2</span>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline28">
+<h2 id="orgheadline28">Styles</h2>
+<p>
+The part inside the curly braces
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #0000ff;">p </span>{
+  <span style="color: #a0522d;">color</span>: grey;
+  <span style="color: #a0522d;">background-color</span>: lightgrey;
+  <span style="color: #a0522d;">color</span>: 2px solid black;
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline29">
+<h2 id="orgheadline29">css location</h2>
+<ol>
+<li>In its own .css file (prefered!)</li>
+
+<li>Inline in <code>&lt;style&gt;...&lt;/style&gt;</code> tag</li>
+
+<li>Inline in <code>style</code> attribute</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline30">
+<h2 id="orgheadline30">important styles</h2>
+<p>
+<code>background</code>
+<code>color</code>
+<code>font</code>
+<code>border</code>
+<code>margin</code>
+<code>padding</code>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline31">
+<h2 id="orgheadline31">Practice</h2>
+<p>
+Add styles to your content
+</p>
+
+<p>
+Maybe try <code>border</code>
+</p>
+
+<p>
+Or just <code>border-bottom</code>?
+</p>
+
+<p>
+Have a look at <a href="http://html.net/tutorials/css/">http://html.net/tutorials/css/</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline32">
+<h2 id="orgheadline32">Done</h2>
+<p>
+Congratulations!
+</p>
+
+<p>
+Learning is not done yet, but now you know the fundamentals.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'fast',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

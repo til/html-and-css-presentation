@@ -1,0 +1,271 @@
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: solarized
+#+REVEAL_SPEED: fast
+#+REVEAL_EXTRA_CSS: custom.css
+* Today
+- Recap homework
+- HTML and CSS
+
+#+REVEAL_HTML: <small>
+The basis of all web development.
+
+After today, you will have a solid understanding, and will be able to
+design your own project!
+#+REVEAL_HTML: </small>
+* Homework from this week
+- Design the app
+- Create controller and view
+- What exactly?
+* HTML and CSS
+* Part I: HTML
+* The M stands for markup
+#+BEGIN_SRC html
+This is some example text.
+#+END_SRC
+becomes
+#+BEGIN_SRC html
+<p>
+  This is some <strong>example</strong> text.
+</p>
+#+END_SRC
+and looks like this in a browser:
+#+REVEAL_HTML: This is some <strong>example</strong> text.
+* HTML is content and structure
+Text content is mixed with /markup/ for the structure.
+
+Markup is made with tags.
+* Tags
+Most tags consist of an opening and a closing tag:
+#+BEGIN_SRC html
+<h1>...</h1>
+#+END_SRC
+tags can be nested:
+#+BEGIN_SRC html
+<h1>...<strong>...</strong>...</h1>
+#+END_SRC
+but never like this: <h1>...<strong>...</h1>...</strong> !
+* Tags can have attributes
+Attributes are inside the opening tag
+#+BEGIN_SRC html
+<p foo="bla">...</p>
+#+END_SRC
+A tag can have multiple different attributes
+#+BEGIN_SRC html
+<p foo="bla" bar="bla2">...</p>
+#+END_SRC
+* Tags for Text
+=h1=: big headline
+
+=h2=, =h3=, ...: smaller headlines
+
+=p=: paragraph
+
+#+BEGIN_SRC html
+<h1>The headline</h1>
+<p>A paragraph.</p>
+<p>Another paragraph.</p>
+#+END_SRC
+
+(There are many more: =small=, =em=, =strong=, =b=, =i=, ...)
+* Whitespace
+In most cases, spaces and newlines inside the code do not matter.
+
+#+BEGIN_SRC html
+<p>Some example     text.
+      </p>
+#+END_SRC
+is displayed as:
+
+Some example text.
+* class and id
+=class= and =id= are special attributes.
+
+They are used by CSS.
+
+The value can be chosen freely.
+* id
+=id= can only be used once per page
+#+BEGIN_SRC html
+<h1 id="the-headline">...</h1>
+#+END_SRC
+* class
+=class= can be used multiple times per page:
+#+BEGIN_SRC html
+<p class="help">...</p>
+<p class="help">...</p>
+#+END_SRC
+
+multiple classes can be separated by space:
+#+BEGIN_SRC html
+<p class="help primary">...</p>
+<p class="help optional">...</p>
+#+END_SRC
+* prefer class
+When in doubt, prefer =class= over =id=.
+* Comments
+#+BEGIN_SRC html
+<!-- this is a comment -->
+#+END_SRC
+* Link
+An =a= tag with an =href= attribute. Link text is enclosed by the tag.
+
+#+BEGIN_SRC html
+<a href="https://www.google.com/">search yourself</a>
+#+END_SRC
+becomes:
+#+REVEAL_HTML: <a href="https://www.google.com/">search yourself</a>
+* Link target
+The value of the =href= attribute.
+
+Can be one of three kinds
+
+1. Different server: =https://www.google.com/=
+1. Absolute link: =/info.html= (same server)
+1. Relative link: =page2.html= (same directory)
+* img
+An =img= tag with a =src= attribute.
+
+#+BEGIN_SRC html
+<img src="my-photo.jpg">
+#+END_SRC
+
+No closing tag, no text.
+
+The URL in =src= can also be on different server, absolute or relative.
+* Forms
+HTML has tags for forms.
+
+#+BEGIN_SRC html
+<input type="text" value="test">
+<input type="submit" value="OK">
+#+END_SRC
+looks like
+#+REVEAL_HTML: <input type="text"><input type="submit" value="OK">
+* page structure
+#+BEGIN_SRC html
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- the content goes here -->
+  </body>
+</html>
+#+END_SRC
+* Practice!
+A sample app
+
+https://github.com/ReDI-School/hello-html-and-css-world
+
+https://redi-school.github.io/hello-html-and-css-world
+
+Add your project title, description, links and an image.
+* Part II: CSS
+* Structure
+Always consists of selector and styles
+#+BEGIN_SRC css
+body {
+  padding: 3em;
+}
+p {
+  background-color: grey;
+}
+#+END_SRC
+* Selectors
+Specify which elements are affected
+
+Simplest form: an html element
+#+BEGIN_SRC css
+p { ... }
+#+END_SRC
+
+or a class
+#+BEGIN_SRC css
+.help { ... }
+#+END_SRC
+
+or both
+#+BEGIN_SRC css
+p.help { ... }
+#+END_SRC
+(or more complicated, later)
+* selector example element
+Given this html
+#+BEGIN_SRC html
+<h1>Headline</h1>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+#+END_SRC
+and this css
+#+BEGIN_SRC css
+p { color: red; }
+#+END_SRC
+is displayed as
+#+REVEAL_HTML: <strong>Headline</strong><br>
+#+REVEAL_HTML: <span style="color: red;">Paragraph 1</span><br>
+#+REVEAL_HTML: <span style="color: red;">Paragraph 2</span>
+
+* selector example class
+Given this html
+#+BEGIN_SRC html
+<h1 class="foo">Headline</h1>
+<p class="bar">Paragraph 1</p>
+<p class="foo">Paragraph 2</p>
+#+END_SRC
+and this css
+#+BEGIN_SRC css
+.foo { color: red; }
+#+END_SRC
+is displayed as
+#+REVEAL_HTML: <strong style="color: red;">Headline</strong><br>
+#+REVEAL_HTML: <span>Paragraph 1</span><br>
+#+REVEAL_HTML: <span style="color: red;">Paragraph 2</span>
+* selector example element and class
+Given this html
+#+BEGIN_SRC html
+<h1 class="foo">Headline</h1>
+<p class="bar">Paragraph 1</p>
+<p class="foo">Paragraph 2</p>
+#+END_SRC
+and this css
+#+BEGIN_SRC css
+p.foo { color: red; }
+#+END_SRC
+is displayed as
+#+REVEAL_HTML: <strong>Headline</strong><br>
+#+REVEAL_HTML: <span>Paragraph 1</span><br>
+#+REVEAL_HTML: <span style="color: red;">Paragraph 2</span>
+* Styles
+The part inside the curly braces
+#+BEGIN_SRC css
+p {
+  color: grey;
+  background-color: lightgrey;
+  color: 2px solid black;
+}
+#+END_SRC
+* css location
+1. In its own .css file (prefered!)
+
+1. Inline in =<style>...</style>= tag
+
+1. Inline in =style= attribute
+* important styles
+=background=
+=color=
+=font=
+=border=
+=margin=
+=padding=
+* Practice
+Add styles to your content
+
+Maybe try =border=
+
+Or just =border-bottom=?
+
+Have a look at http://html.net/tutorials/css/
+* Done
+Congratulations!
+
+Learning is not done yet, but now you know the fundamentals.
